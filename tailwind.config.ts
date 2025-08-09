@@ -1,0 +1,156 @@
+import type { Config } from "tailwindcss";
+
+export default {
+	darkMode: ["class"],
+	content: [
+		"./pages/**/*.{ts,tsx}",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
+	],
+	prefix: "",
+	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px'
+			}
+		},
+		extend: {
+			colors: {
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				background: 'hsl(var(--background))',
+				foreground: 'hsl(var(--foreground))',
+				primary: {
+					DEFAULT: 'hsl(var(--primary))',
+					foreground: 'hsl(var(--primary-foreground))'
+				},
+				secondary: {
+					DEFAULT: 'hsl(var(--secondary))',
+					foreground: 'hsl(var(--secondary-foreground))'
+				},
+				accent: {
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))'
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))'
+				},
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))'
+				},
+				// NPL Auction specific colors
+				'category-s': 'hsl(var(--category-s))',
+				'category-a': 'hsl(var(--category-a))',
+				'category-b': 'hsl(var(--category-b))',
+				'category-c': 'hsl(var(--category-c))',
+				'category-lt': 'hsl(var(--category-lt))',
+				'team-1': 'hsl(var(--team-1))',
+				'team-2': 'hsl(var(--team-2))',
+				'team-3': 'hsl(var(--team-3))',
+				'team-4': 'hsl(var(--team-4))',
+				'team-5': 'hsl(var(--team-5))',
+				'team-6': 'hsl(var(--team-6))',
+				'team-7': 'hsl(var(--team-7))',
+				'team-8': 'hsl(var(--team-8))',
+				sidebar: {
+					DEFAULT: 'hsl(var(--sidebar-background))',
+					foreground: 'hsl(var(--sidebar-foreground))',
+					primary: 'hsl(var(--sidebar-primary))',
+					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+					accent: 'hsl(var(--sidebar-accent))',
+					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+					border: 'hsl(var(--sidebar-border))',
+					ring: 'hsl(var(--sidebar-ring))'
+				}
+			},
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-subtle': 'var(--gradient-subtle)',
+			},
+			boxShadow: {
+				'auction': 'var(--shadow-auction)',
+				'glow': 'var(--shadow-glow)',
+			},
+			keyframes: {
+				'accordion-down': {
+					from: {
+						height: '0'
+					},
+					to: {
+						height: 'var(--radix-accordion-content-height)'
+					}
+				},
+				'accordion-up': {
+					from: {
+						height: 'var(--radix-accordion-content-height)'
+					},
+					to: {
+						height: '0'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.3)',
+					},
+					'50%': {
+						boxShadow: '0 0 40px hsl(var(--primary) / 0.6)',
+					},
+				},
+				'bid-bounce': {
+					'0%, 20%, 53%, 80%, 100%': {
+						transform: 'translateY(0)',
+					},
+					'40%, 43%': {
+						transform: 'translateY(-8px)',
+					},
+					'70%': {
+						transform: 'translateY(-4px)',
+					},
+				},
+				'dice-roll': {
+					'0%': { transform: 'rotate(0deg)' },
+					'25%': { transform: 'rotate(90deg)' },
+					'50%': { transform: 'rotate(180deg)' },
+					'75%': { transform: 'rotate(270deg)' },
+					'100%': { transform: 'rotate(360deg)' },
+				}
+			},
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'bid-bounce': 'bid-bounce 1s ease-in-out',
+				'dice-roll': 'dice-roll 2s ease-in-out infinite',
+			}
+		}
+	},
+	plugins: [require("tailwindcss-animate")],
+} satisfies Config;
